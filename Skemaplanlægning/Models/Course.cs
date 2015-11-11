@@ -1,17 +1,16 @@
-﻿namespace Models
+﻿using System;
+using System.Collections.ObjectModel;
+
+namespace Models
 {
     public class Course
     {
-        /// <summary>
-        /// Course Id
-        /// </summary>
         public int Id { get; set; }
-        
-        /// <summary>
-        /// Duration of the course in weeks
-        /// </summary>
-        public int Duration { get; set; }
-
         public CourseType CourseType { get; set; }
+        public ObservableCollection<Teacher> Teachers { get; set; }
+        public ObservableCollection<Sprint> Sprints { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+
     }
 }
