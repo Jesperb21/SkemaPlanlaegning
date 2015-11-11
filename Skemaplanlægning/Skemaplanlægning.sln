@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skemaplanlægning_DesktopClient", "Skemaplanlægning_DesktopClient\Skemaplanlægning_DesktopClient.csproj", "{2E62DDAE-5931-4181-B671-948DF9CA139F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{2C43F9EE-5E7F-4D58-97E4-042697206E2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{331D3CC7-3A3D-4D55-9DC8-77CBEC5EC26E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{2E62DDAE-5931-4181-B671-948DF9CA139F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E62DDAE-5931-4181-B671-948DF9CA139F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E62DDAE-5931-4181-B671-948DF9CA139F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C43F9EE-5E7F-4D58-97E4-042697206E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C43F9EE-5E7F-4D58-97E4-042697206E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C43F9EE-5E7F-4D58-97E4-042697206E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C43F9EE-5E7F-4D58-97E4-042697206E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{331D3CC7-3A3D-4D55-9DC8-77CBEC5EC26E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{331D3CC7-3A3D-4D55-9DC8-77CBEC5EC26E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{331D3CC7-3A3D-4D55-9DC8-77CBEC5EC26E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{331D3CC7-3A3D-4D55-9DC8-77CBEC5EC26E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
