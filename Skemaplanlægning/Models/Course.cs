@@ -3,6 +3,11 @@ using System.Collections.ObjectModel;
 
 namespace Models
 {
+    /// <summary>
+    /// an instance of a course, 
+    /// ex: Programming 4 which runs in November 2015
+    /// this contains teachers, a start/end date, general Course Type, and what sprints will contain the course 
+    /// </summary>
     public class Course
     {
         public int Id { get; set; }

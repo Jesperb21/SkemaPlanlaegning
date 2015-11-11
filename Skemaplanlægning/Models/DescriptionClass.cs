@@ -2,11 +2,14 @@
 
 namespace Models
 {
-    public class Test
+    /// <summary>
+    /// serves to describe the interactions between the different models
+    /// </summary>
+    public class DescriptionClass
     {
-        public Test()
+        public DescriptionClass()
         {
-            #region Genre
+            #region Programmering 4
 
             CourseType courseType = new CourseType();
             courseType.Id = 0;
@@ -45,7 +48,7 @@ namespace Models
 
             #endregion
 
-            #region Programmering 4 fag
+            #region Programmering 4 faget som kører den dato med de hold på det
 
             Course course = new Course();
             course.Id = 0;

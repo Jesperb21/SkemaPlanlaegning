@@ -4,6 +4,10 @@ using System.Collections.ObjectModel;
 
 namespace Models
 {
+    /// <summary>
+    /// An Instance of a SprintType, 
+    /// ex the DT-P-H5 that runs from now to tomorrow
+    /// </summary>
     public class Sprint
     {
         public int Id { get; set; }

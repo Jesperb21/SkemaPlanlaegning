@@ -2,6 +2,10 @@
 
 namespace Models
 {
+    /// <summary>
+    /// a basic POCO of a Teacher,
+    /// ex: Michael Nielsen
+    /// </summary>
     public class Teacher
     {
         /// <summary>
