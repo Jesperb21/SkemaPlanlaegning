@@ -6,19 +6,31 @@ namespace Models
     {
         public Test()
         {
+            #region Genre
+
             CourseType courseType = new CourseType();
             courseType.Id = 0;
             courseType.Name = "Programmering";
+
+            #endregion
+
+            #region SprintType Datatekniker med speciale i Programmering H5
 
             SprintType sprintType = new SprintType();
             sprintType.Id = 0;
             sprintType.Name = "PG5";
 
+            #endregion
+
+            #region Sprint den instance af den type som vi er på
+
             Sprint sprint = new Sprint();
             sprint.Id = 0;
             sprint.SprintType = sprintType;
-            sprint.StartTime = DateTime.Now;
-            sprint.EndTime = DateTime.Now;
+            
+            #endregion
+
+            #region Student & Teach
 
             Student student = new Student();
             student.Id = 0;
@@ -31,13 +43,19 @@ namespace Models
             teacher.LastName = "Nielsen";
             teacher.TeachableCourses.Add(courseType);
 
+            #endregion
+
+            #region Programmering 4 fag
+
             Course course = new Course();
             course.Id = 0;
             course.StartTime = DateTime.Now;
             course.EndTime = DateTime.Now.AddDays(5);
             course.Sprints.Add(sprint);
             course.Teachers.Add(teacher);
-            course.CourseType = courseType;           
+            course.CourseType = courseType;
+
+            #endregion
 
 
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Models
@@ -7,7 +8,6 @@ namespace Models
     {
         public int Id { get; set; }
         public SprintType SprintType { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public List<Student> Students { get; set; }
     }
 }
