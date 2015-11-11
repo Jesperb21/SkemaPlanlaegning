@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -7,8 +7,8 @@ namespace Models
     {
         public int Id { get; set; }
         public CourseType CourseType { get; set; }
-        public ObservableCollection<Teacher> Teachers { get; set; }
-        public ObservableCollection<Sprint> Sprints { get; set; }
+        public List<Teacher> Teachers { get; set; }
+        public List<Sprint> Sprints { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
