@@ -9,6 +9,29 @@ namespace Models
             
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Teacher>().
+                HasMany(t => t.TeachableCourses).
+                WithMany(c => c.TaughtByTeachers).
+                Map(m =>
+                {
+                    m.MapLeftKey("TeacherId");
+                    m.MapRightKey("CourseId");
+                    m.ToTable("TeachableCourses");
+                });
+
+            modelBuilder.Entity<Teacher>().
+                HasMany(t => t.Teaching).
+                WithMany(ci => ci.Teachers).
+                Map(m =>
+                {
+                    m.MapLeftKey("TeacherId");
+                    m.MapRightKey("CourseId");
+                    m.ToTable("TeachingInCourses");
+                });
+        }
+
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseInstance> CourseInstances { get; set; }
         public DbSet<Class> Classes { get; set; }

@@ -65,41 +65,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ClassCRUDView.xaml.cs">
+    <Compile Include="views\UIControls\ClassCRUDView.xaml.cs">
       <DependentUpon>ClassCRUDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ClassTemplateCRUDView.xaml.cs">
+    <Compile Include="views\UIControls\ClassTemplateCRUDView.xaml.cs">
       <DependentUpon>ClassTemplateCRUDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CourseCRUDView.xaml.cs">
+    <Compile Include="views\UIControls\CourseCRUDView.xaml.cs">
       <DependentUpon>CourseCRUDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CourseInstanceCRDView.xaml.cs">
+    <Compile Include="views\UIControls\CourseInstanceCRDView.xaml.cs">
       <DependentUpon>CourseInstanceCRDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentCRUDView.xaml.cs">
+    <Compile Include="views\UIControls\StudentCRUDView.xaml.cs">
       <DependentUpon>StudentCRUDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TeacherCRUDView.xaml.cs">
+    <Compile Include="views\UIControls\TeacherCRUDView.xaml.cs">
       <DependentUpon>TeacherCRUDView.xaml</DependentUpon>
     </Compile>
-    <Page Include="ClassCRUDView.xaml">
+    <Page Include="views\UIControls\ClassCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ClassTemplateCRUDView.xaml">
+    <Page Include="views\UIControls\ClassTemplateCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CourseCRUDView.xaml">
+    <Page Include="views\UIControls\CourseCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CourseInstanceCRDView.xaml">
+    <Page Include="views\UIControls\CourseInstanceCRDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -107,15 +107,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StudentCRUDView.xaml">
+    <Page Include="views\UIControls\StudentCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TeacherCRUDView.xaml">
+    <Page Include="views\UIControls\TeacherCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

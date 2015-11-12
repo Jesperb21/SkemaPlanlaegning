@@ -12,6 +12,7 @@ namespace Models.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
+
         protected override void Seed(Models.DataContext context)
         {
             //  This method will be called after migrating to the latest version.
