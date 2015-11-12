@@ -28,6 +28,6 @@ namespace Models
         /// <summary>
         /// A list of courses the Teacher is eligable to teach in
         /// </summary>
-        public List<CourseType> TeachableCourses { get; set; }
+        public List<Course> TeachableCourses { get; set; }
     }
 }   
