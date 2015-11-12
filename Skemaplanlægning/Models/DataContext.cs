@@ -9,11 +9,11 @@ namespace Models
             
         }
 
-        public DbSet<Course> Courses { get; }
-        public DbSet<CourseType> CourseTypes { get; }
-        public DbSet<Sprint> Sprints { get; }
-        public DbSet<SprintType> SprintTypes { get; }
-        public DbSet<Student> Students { get; }
-        public DbSet<Teacher> Teachers { get; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseType> CourseTypes { get; set; }
+        public DbSet<Sprint> Sprints { get; set; }
+        public DbSet<SprintType> SprintTypes { get; set; }
+        public DbSet<Student> Students { get; set;  }
+        public DbSet<Teacher> Teachers { get; set; }
     }
 }
