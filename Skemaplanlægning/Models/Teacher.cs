@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
@@ -11,6 +12,7 @@ namespace Models
         /// <summary>
         /// the unique identifier of the specific teacher
         /// </summary>
+        [Key]
         public int Id { get; set; }
 
         /// <summary>

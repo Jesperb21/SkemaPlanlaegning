@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
@@ -10,6 +11,7 @@ namespace Models
     /// </summary>
     public class Course
     {
+        [Key]
         public int Id { get; set; }
         public CourseType CourseType { get; set; }
         public ObservableCollection<Teacher> Teachers { get; set; }

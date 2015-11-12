@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Models
 {
     /// <summary>
     /// a sprint type,
@@ -6,6 +8,7 @@
     /// </summary>
     public class SprintType
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; } 
     }
