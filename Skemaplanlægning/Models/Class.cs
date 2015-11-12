@@ -13,6 +13,7 @@ namespace Models
     {
         [Key]
         public int Id { get; set; }
+        public string Name { get; set; }
         public ClassTemplate ClassTemplate{ get; set; }
         public List<CourseInstance> CourseInstances { get; set; }
         public List<Student> Students { get; set; }

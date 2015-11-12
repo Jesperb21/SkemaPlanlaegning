@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModels;
 
 namespace Skemaplanlægning_DesktopClient
 {
@@ -23,6 +24,7 @@ namespace Skemaplanlægning_DesktopClient
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ClassViewModel();
         }
     }
 }
