@@ -44,6 +44,18 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FirstFloor.ModernUI, Version=1.0.5.0, Culture=neutral, PublicKeyToken=2d21ec3cd074c59a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ModernUI.WPF.1.0.5\lib\net45\FirstFloor.ModernUI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NCodeFactory.Toolkit.Common, Version=1.0.0.21, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NCodeFactory.Toolkit.Common.1.0.0.21\lib\net45\NCodeFactory.Toolkit.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NCodeFactory.Toolkit.Mvvm.Wpf.Mui, Version=1.0.0.21, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NCodeFactory.Toolkit.Mvvm.Wpf.Mui.1.0.0.21\lib\net45\NCodeFactory.Toolkit.Mvvm.Wpf.Mui.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -65,37 +77,37 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="views\UIControls\ClassCRUDView.xaml.cs">
+    <Compile Include="views\CRUDs\ClassCRUDView.xaml.cs">
       <DependentUpon>ClassCRUDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\UIControls\ClassTemplateCRUDView.xaml.cs">
+    <Compile Include="views\CRUDs\ClassTemplateCRUDView.xaml.cs">
       <DependentUpon>ClassTemplateCRUDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\UIControls\CourseCRUDView.xaml.cs">
+    <Compile Include="views\CRUDs\CourseCRUDView.xaml.cs">
       <DependentUpon>CourseCRUDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\UIControls\CourseInstanceCRDView.xaml.cs">
+    <Compile Include="views\CRUDs\CourseInstanceCRDView.xaml.cs">
       <DependentUpon>CourseInstanceCRDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\UIControls\StudentCRUDView.xaml.cs">
+    <Compile Include="views\CRUDs\StudentCRUDView.xaml.cs">
       <DependentUpon>StudentCRUDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\UIControls\TeacherCRUDView.xaml.cs">
+    <Compile Include="views\CRUDs\TeacherCRUDView.xaml.cs">
       <DependentUpon>TeacherCRUDView.xaml</DependentUpon>
     </Compile>
-    <Page Include="views\UIControls\ClassCRUDView.xaml">
+    <Page Include="views\CRUDs\ClassCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="views\UIControls\ClassTemplateCRUDView.xaml">
+    <Page Include="views\CRUDs\ClassTemplateCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="views\UIControls\CourseCRUDView.xaml">
+    <Page Include="views\CRUDs\CourseCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="views\UIControls\CourseInstanceCRDView.xaml">
+    <Page Include="views\CRUDs\CourseInstanceCRDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,11 +123,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="views\UIControls\StudentCRUDView.xaml">
+    <Page Include="views\CRUDs\StudentCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="views\UIControls\TeacherCRUDView.xaml">
+    <Page Include="views\CRUDs\TeacherCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

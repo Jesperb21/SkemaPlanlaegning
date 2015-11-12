@@ -18,11 +18,12 @@ namespace Skemaplanlægning_DesktopClient
     /// <summary>
     /// Interaction logic for CourseCRUDView.xaml
     /// </summary>
-    public partial class CourseCRUDView : UserControl
+    public partial class CourseCRUDView :Page
+
+{
+    public CourseCRUDView()
     {
-        public CourseCRUDView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
+}
 }
