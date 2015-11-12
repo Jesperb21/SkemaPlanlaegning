@@ -5,8 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Skemaplanlægning_DesktopClient"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+             d:DesignHeight="300" d:DesignWidth="525">
+    <DockPanel Margin="30">
+        <DockPanel DockPanel.Dock="Left" Width="200" Margin="0,0,32,0">
+            <TextBlock DockPanel.Dock="Top">
+                <Hyperlink Command="{Binding AddCommand}">Add Customer</Hyperlink>
+                <Hyperlink Command="{Binding GetCustomerListCommand}">Refresh</Hyperlink>
+            </TextBlock>
+            <ListBox ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}" Height="243" VerticalAlignment="Bottom">
+            </ListBox>
+        </DockPanel>
+        <!--{Binding CanModify, Converter={StaticResource VisibilityConverter}}-->
+        <StackPanel DockPanel.Dock="Right" Visibility="Visible">
+            <Label>Name</Label>
+            <TextBox Text="" />
             
-    </Grid>
+            <Label>?</Label>
+            <TextBox Text="" />
+
+            <Label>?</Label>
+            <TextBox Text="" />
+            <TextBlock>
+                <Hyperlink Command="{Binding UpdateCommand}">Save</Hyperlink>
+                <Hyperlink Command="{Binding DeleteCommand}">Delete</Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </DockPanel>
 </UserControl>
+
