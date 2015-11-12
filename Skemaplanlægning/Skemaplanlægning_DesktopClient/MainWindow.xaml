@@ -4,7 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Skemaplanlægning_DesktopClient"
+        xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid/>
+    <Grid>
+        <ListView ItemsSource="{Binding Classes}"></ListView>
+        <Button Content="Button" Command="{Binding Save}" HorizontalAlignment="Left" Margin="112,53,0,0" VerticalAlignment="Top" Width="75"
+                d:DataContext="{d:DesignInstance vm:ClassViewModel}" />
+    </Grid>
 </Window>
