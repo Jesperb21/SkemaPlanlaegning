@@ -11,6 +11,5 @@ namespace Models
         public List<Sprint> Sprints { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-
     }
 }
