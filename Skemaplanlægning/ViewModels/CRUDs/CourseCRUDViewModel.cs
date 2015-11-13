@@ -20,6 +20,7 @@ namespace ViewModels.CRUDs
         { }
         public CourseCRUDViewModel(DataContext context)
         {
+            SelectedCourse = new Course();
             this._context = context;
         }
 
@@ -70,11 +71,11 @@ namespace ViewModels.CRUDs
             }
         }
 
-        public ICommand UpdateCommand
+        public ICommand SaveCommand
         {
             get
             {
-                return new ActionCommand(a => UpdateCourse());
+                return new ActionCommand(a => SaveCourse());
             }
         }
 
@@ -90,13 +91,6 @@ namespace ViewModels.CRUDs
         public void CreateCourse()
         {
             SelectedCourse = new Course();
-            
-            //add to db
-            //_context.Courses.Add(SelectedCourse);
-            //_context.SaveChanges();
-
-            //add to Observable Collection
-            //Courses.Add(SelectedCourse);
         }
 
         public void RefreshCourseList()
@@ -115,12 +109,11 @@ namespace ViewModels.CRUDs
             SelectedCourse = null;
         }
 
-        public void UpdateCourse()
+        public void SaveCourse()
         {
-            var course = _context.Courses.Find(SelectedCourse.Id);
-
-            _context.Entry(course).CurrentValues.SetValues(SelectedCourse);
+            _context.Courses.AddOrUpdate(SelectedCourse);
             _context.SaveChanges();
+            RefreshCourseList();
         }
     } 
 }

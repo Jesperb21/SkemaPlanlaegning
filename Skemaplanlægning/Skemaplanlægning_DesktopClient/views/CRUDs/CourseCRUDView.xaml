@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ViewModels.CRUDs;assembly=ViewModels"
              xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
+             xmlns:models="clr-namespace:Models;assembly=Models"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance local:CourseCRUDViewModel}"
              d:DesignHeight="300" d:DesignWidth="525">
@@ -17,7 +18,12 @@
                 <Hyperlink Command="{Binding CreateCommand}">Add New Course</Hyperlink>
                 <Hyperlink Command="{Binding RefreshCommand}">Refresh</Hyperlink>
             </TextBlock>
-            <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse}" Height="243" VerticalAlignment="Bottom">
+            <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse}" VerticalAlignment="Top" Margin="0,5,0,0">
+                <ListBox.Resources> <!--                        - - - - - - - - - -TODO tjek lige med Michael om det her- - - - - - - - - - -                          -->
+                    <DataTemplate DataType="{x:Type models:Course}">
+                        <TextBlock Text="{Binding Path=Name}" />
+                    </DataTemplate>
+                </ListBox.Resources>
             </ListBox>
         </DockPanel>
         <!--{Binding CanModify, Converter={StaticResource VisibilityConverter}}-->
@@ -28,7 +34,7 @@
             <Label>Duration (weeks)</Label>
             <TextBox Text="{Binding SelectedCourse.Duration}" />
             <TextBlock>
-                <Hyperlink Command="{Binding UpdateCommand}">Save</Hyperlink>
+                <Hyperlink Command="{Binding SaveCommand}">Save</Hyperlink>
                 <Hyperlink Command="{Binding DeleteCommand}">Delete</Hyperlink>
             </TextBlock>
         </StackPanel>

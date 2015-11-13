@@ -19,5 +19,6 @@ namespace Models
         public int Duration { get; set; }
 
         public List<Teacher> TaughtByTeachers { get; set; }
+        public List<ClassTemplate> IsInClassTemplates { get; set; }
     }
 }

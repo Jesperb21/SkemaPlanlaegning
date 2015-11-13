@@ -30,6 +30,9 @@ namespace Models
                     m.MapRightKey("CourseId");
                     m.ToTable("TeachingInCourses");
                 });
+            modelBuilder.Entity<ClassTemplate>().
+                HasMany(ct => ct.Courses).
+                WithMany(c => c.IsInClassTemplates);
         }
 
         public DbSet<Course> Courses { get; set; }

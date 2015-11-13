@@ -19,6 +19,17 @@
                 <mui:Link DisplayName="Teachers" Source="../views/CRUDs/TeacherCRUDView.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Teacher Overview">
+            <mui:LinkGroup.Links>
+            <mui:Link DisplayName="Teacher's calender" Source=""/>
+            <mui:Link DisplayName="Overall calender" Source=""/>
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Students Overview">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Class Calender" Source="" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
     
 </mui:ModernWindow>
