@@ -3,14 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ViewModels.CRUDs;assembly=ViewModels"
-             xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
+             xmlns:vm="clr-namespace:ViewModels.CRUDs;assembly=ViewModels"
              xmlns:models="clr-namespace:Models;assembly=Models"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance local:CourseCRUDViewModel}"
-             d:DesignHeight="300" d:DesignWidth="525">
+             d:DataContext="{d:DesignInstance vm:CourseCRUDViewModel}"
+             d:DesignHeight="500" d:DesignWidth="800">
     <Page.Resources>
-        <local:CourseCRUDViewModel x:Key="CourseCrudViewModel" />
+        <vm:CourseCRUDViewModel x:Key="CourseCrudViewModel" />
     </Page.Resources>
     <DockPanel Margin="30" DataContext="{DynamicResource CourseCrudViewModel}">
         <DockPanel DockPanel.Dock="Left" Width="200" Margin="0,0,32,0">
@@ -19,11 +18,11 @@
                 <Hyperlink Command="{Binding RefreshCommand}">Refresh</Hyperlink>
             </TextBlock>
             <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse}" VerticalAlignment="Top" Margin="0,5,0,0">
-                <ListBox.Resources> <!--                        - - - - - - - - - -TODO tjek lige med Michael om det her- - - - - - - - - - -                          -->
-                    <DataTemplate DataType="{x:Type models:Course}">
-                        <TextBlock Text="{Binding Path=Name}" />
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
                     </DataTemplate>
-                </ListBox.Resources>
+                </ListBox.ItemTemplate>
             </ListBox>
         </DockPanel>
         <!--{Binding CanModify, Converter={StaticResource VisibilityConverter}}-->
