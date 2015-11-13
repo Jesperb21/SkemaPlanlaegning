@@ -15,6 +15,7 @@ namespace Models
         [Key]
         public int Id { get; set; }
         public  List<Teacher> Teachers { get; set; }
+        public List<Class> Classes { get; set; } 
         public Course Course { get; set; }
         public DateTime StartTime { get; set; }
     }

@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201511130711085_added many-to-many relationship between class templates and courses.Designer.cs">
       <DependentUpon>201511130711085_added many-to-many relationship between class templates and courses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511130727516_revised-Many-To-Many relationships.cs" />
+    <Compile Include="Migrations\201511130727516_revised-Many-To-Many relationships.Designer.cs">
+      <DependentUpon>201511130727516_revised-Many-To-Many relationships.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClassTemplate.cs" />
@@ -104,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511130711085_added many-to-many relationship between class templates and courses.resx">
       <DependentUpon>201511130711085_added many-to-many relationship between class templates and courses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511130727516_revised-Many-To-Many relationships.resx">
+      <DependentUpon>201511130727516_revised-Many-To-Many relationships.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

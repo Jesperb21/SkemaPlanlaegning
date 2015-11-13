@@ -11,6 +11,14 @@ namespace Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            SetupManyToManyRelationships(modelBuilder);
+        }
+
+        private void SetupManyToManyRelationships(DbModelBuilder modelBuilder)
+        {
+
+            #region Teachers' Many-to-Many config
+
             modelBuilder.Entity<Teacher>().
                 HasMany(t => t.TeachableCourses).
                 WithMany(c => c.TaughtByTeachers).
@@ -30,9 +38,16 @@ namespace Models
                     m.MapRightKey("CourseId");
                     m.ToTable("TeachingInCourses");
                 });
+
+            #endregion
+
             modelBuilder.Entity<ClassTemplate>().
                 HasMany(ct => ct.Courses).
                 WithMany(c => c.IsInClassTemplates);
+
+            modelBuilder.Entity<Class>().
+                HasMany(c => c.CourseInstances).
+                WithMany(ci => ci.Classes);
         }
 
         public DbSet<Course> Courses { get; set; }
