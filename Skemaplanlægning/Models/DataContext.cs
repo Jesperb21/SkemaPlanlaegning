@@ -6,7 +6,6 @@ namespace Models
     {
         public DataContext() : base("name=SkemaDbConnectionString")
         {
-            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

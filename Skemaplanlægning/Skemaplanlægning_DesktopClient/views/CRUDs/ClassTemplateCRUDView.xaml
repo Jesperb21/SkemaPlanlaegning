@@ -1,10 +1,11 @@
-﻿<Page x:Class="Skemaplanlægning_DesktopClient.ClassTemplateCRUDView"
+﻿<Page x:Class="Skemaplanlægning_DesktopClient.views.CRUDs.ClassTemplateCRUDView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:vm="clr-namespace:ViewModels.CRUDs;assembly=ViewModels"
-             xmlns:models="clr-namespace:Models;assembly=Models"
+             xmlns:vm="clr-namespace:ViewModels.CRUDs;assembly=ViewModels" 
+             xmlns:v="clr-namespace:Skemaplanlægning_DesktopClient"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:ClassTemplateCRUDViewModel}"
              d:DesignHeight="500" d:DesignWidth="800">
@@ -30,9 +31,29 @@
         <StackPanel DockPanel.Dock="Right">
             <Label>Name</Label>
             <TextBox Text="{Binding SelectedTemplate.Name}" />
-            <ListBox>
-                <!--TODO figure out most sensible way to modify classes in this template-->
-            </ListBox>
+            <!--that annoying listbox which lets you select courses for the class template-->
+            <!-- FUCKING LISTBOX MULTI ITEM SELECTIONBEHAVIOR! -->
+            <StackPanel>
+                <TextBlock Margin="0,0,0,10" Text="Courses available" />
+                <DockPanel>
+                    <ListBox ItemsSource="{Binding Courses}" DockPanel.Dock="Left" SelectedItem="{Binding selectedInCourses}" SelectionMode="Single">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Content="Add" Command="{Binding AddCourseToSelectedCourses}" />
+                    <ListBox ItemsSource="{Binding SelectedCourses}" DockPanel.Dock="Right"  SelectionMode="Multiple">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </DockPanel>
+            </StackPanel>
             <TextBlock>
                 <Hyperlink Command="{Binding SaveCommand}">Save</Hyperlink>
                 <Hyperlink Command="{Binding DeleteCommand}">Delete</Hyperlink>

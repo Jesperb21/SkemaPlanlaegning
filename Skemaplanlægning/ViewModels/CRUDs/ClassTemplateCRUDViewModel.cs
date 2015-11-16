@@ -1,16 +1,18 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity.Migrations;
-using System.Linq;
+using System.Linq.Expressions;
 using System.Windows.Input;
 using Models;
 
 namespace ViewModels.CRUDs
 {
-    //Jeg tager de her VM + dens view ~Jesper
     public class ClassTemplateCRUDViewModel : BaseViewModel
     {
         private DataContext _context;
         private ObservableCollection<ClassTemplate> _templates;
+        private ObservableCollection<Course> _courses;
         private ClassTemplate _selectedTemplate;
 
         public ClassTemplateCRUDViewModel() : this(new DataContext())
@@ -20,6 +22,8 @@ namespace ViewModels.CRUDs
             SelectedTemplate = new ClassTemplate();
             this._context = context;
         }
+
+        private ObservableCollection<Course> _selectedCourses;
 
         #region Properties
 
@@ -36,8 +40,27 @@ namespace ViewModels.CRUDs
             }
             set
             {
-                NotifyPropertyChanged("Templates");
                 _templates = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Course> Courses
+        {
+            get
+            {
+                if (_courses != null)
+                {
+                    return _courses;
+                }
+                _courses = new ObservableCollection<Course>(_context.Courses);
+
+                return _courses; 
+            }
+            set
+            {
+                _courses = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -47,6 +70,30 @@ namespace ViewModels.CRUDs
             set
             {
                 _selectedTemplate = value;
+
+                if (value.Id != 0)
+                {
+                    //wait... entityframework is supposed to automatically load this when i havn't disabled lazyloading???
+                    //well... it works, will probably have to add a TODO check up with michael about this
+                    _context.Entry(SelectedTemplate).Collection(s => s.Courses).Load();
+
+                    if (SelectedTemplate.Courses != null)
+                        SelectedCourses = new ObservableCollection<Course>(SelectedTemplate.Courses);
+                }
+
+                NotifyPropertyChanged(nameof(SelectedCourses));
+                NotifyPropertyChanged();
+            }
+        }
+        public ObservableCollection<Course> SelectedCourses
+        {
+            get
+            {
+                return _selectedCourses;
+            }
+            set
+            {
+                _selectedCourses = value;
                 NotifyPropertyChanged();
             }
         }
@@ -83,6 +130,22 @@ namespace ViewModels.CRUDs
                 return new ActionCommand(a => DeleteTemplate());
             }
         }
+
+        public ICommand AddCourseToSelectedCourses
+        {
+            get
+            {
+                return new ActionCommand(a => addCourseToSelectedCourses());
+            }
+        }
+
+        public Course selectedInCourses { get; set; }
+
+        private void addCourseToSelectedCourses()
+        {
+            SelectedCourses.Add(selectedInCourses);
+        }
+
         #endregion
 
         public void CreateTemplate()
@@ -92,7 +155,6 @@ namespace ViewModels.CRUDs
 
         public void RefreshTemplateList()
         {
-            //TODO hvafuck
             Templates = new ObservableCollection<ClassTemplate>(_context.ClassTemplates);
         }
 
@@ -109,8 +171,11 @@ namespace ViewModels.CRUDs
 
         public void SaveTemplate()
         {
+            var sel = SelectedCourses;
+            SelectedTemplate.Courses = new List<Course>(sel);
             _context.ClassTemplates.AddOrUpdate(SelectedTemplate);
             _context.SaveChanges();
+
             RefreshTemplateList();
         }
     }

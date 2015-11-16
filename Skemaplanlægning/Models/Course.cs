@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
@@ -20,5 +21,7 @@ namespace Models
 
         public List<Teacher> TaughtByTeachers { get; set; }
         public List<ClassTemplate> IsInClassTemplates { get; set; }
+
+        [NotMapped] public bool? isSelected { get; set; }
     }
 }

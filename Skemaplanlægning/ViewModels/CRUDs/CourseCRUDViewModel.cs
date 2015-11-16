@@ -39,8 +39,8 @@ namespace ViewModels.CRUDs
             }
             set
             {
-                NotifyPropertyChanged();
                 _courses = value;
+                NotifyPropertyChanged();
             }
         }
 
