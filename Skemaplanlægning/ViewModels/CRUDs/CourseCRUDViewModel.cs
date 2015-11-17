@@ -12,17 +12,27 @@ namespace ViewModels.CRUDs
 {
     public class CourseCRUDViewModel : BaseViewModel
     {
+        #region Single-line Private Fields
+
         private DataContext _context;
         private ObservableCollection<Course> _courses;
         private Course _selectedCourse;
 
+        #endregion
+
+        #region Constructors
+
         public CourseCRUDViewModel() : this(new DataContext())
-        { }
+        {
+        }
+
         public CourseCRUDViewModel(DataContext context)
         {
             SelectedCourse = new Course();
             this._context = context;
         }
+
+        #endregion
 
         #region Properties
 
@@ -88,6 +98,8 @@ namespace ViewModels.CRUDs
         }
         #endregion
 
+        #region Support Methods
+
         public void CreateCourse()
         {
             SelectedCourse = new Course();
@@ -115,5 +127,8 @@ namespace ViewModels.CRUDs
             _context.SaveChanges();
             RefreshCourseList();
         }
+
+        #endregion
+
     } 
 }
