@@ -8,24 +8,79 @@ using Models;
 
 namespace ViewModels.CRUDs
 {
+    /// <summary>
+    /// The viewmodel for the ClassTemplateCRUDView, 
+    /// the "demands" of the class were to facilitate basic CRUD actions for Class Templates (Class in DB)
+    /// and support selection / de-selection of Courses for the template
+    /// </summary>
     public class ClassTemplateCRUDViewModel : BaseViewModel
     {
+        #region single-line private fields
+
         private DataContext _context;
         private ObservableCollection<ClassTemplate> _templates;
         private ObservableCollection<Course> _courses;
+        private ObservableCollection<Course> _selectedCourses;
         private ClassTemplate _selectedTemplate;
 
+        #endregion
+
+
+        #region Constructors
+
         public ClassTemplateCRUDViewModel() : this(new DataContext())
-        { }
+        {
+        }
+
         public ClassTemplateCRUDViewModel(DataContext context)
         {
             SelectedTemplate = new ClassTemplate();
             this._context = context;
         }
 
-        private ObservableCollection<Course> _selectedCourses;
+        #endregion
 
         #region Properties
+
+        #region Course Selection
+
+        public Course selectedInCourses { get; set; }
+
+        public Course selectedInSelectedCourses { get; set; }
+
+
+        public ObservableCollection<Course> Courses
+        {
+            get
+            {
+                if (_courses != null)
+                {
+                    return _courses;
+                }
+                _courses = new ObservableCollection<Course>(_context.Courses);
+
+                return _courses;
+            }
+            set
+            {
+                _courses = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Course> SelectedCourses
+        {
+            get { return _selectedCourses; }
+            set
+            {
+                _selectedCourses = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        #endregion
+
+        #region Template CRUD bindable variables
 
         public ObservableCollection<ClassTemplate> Templates
         {
@@ -41,25 +96,6 @@ namespace ViewModels.CRUDs
             set
             {
                 _templates = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public ObservableCollection<Course> Courses
-        {
-            get
-            {
-                if (_courses != null)
-                {
-                    return _courses;
-                }
-                _courses = new ObservableCollection<Course>(_context.Courses);
-
-                return _courses; 
-            }
-            set
-            {
-                _courses = value;
                 NotifyPropertyChanged();
             }
         }
@@ -85,22 +121,29 @@ namespace ViewModels.CRUDs
                 NotifyPropertyChanged();
             }
         }
-        public ObservableCollection<Course> SelectedCourses
-        {
-            get
-            {
-                return _selectedCourses;
-            }
-            set
-            {
-                _selectedCourses = value;
-                NotifyPropertyChanged();
-            }
-        }
+
+        #endregion
 
         #endregion
 
         #region ICommands
+
+        #region course selection ICommands
+
+        public ICommand AddCourseToSelectedCourses
+        {
+            get { return new ActionCommand(a => addCourseToSelectedCourses()); }
+        }
+
+
+        public ICommand RemoveCourseToSelectedCourses
+        {
+            get { return new ActionCommand(a => removeCourseToSelectedCourses()); }
+        }
+
+        #endregion
+
+        #region Template CRUD ICommands
 
         public ICommand CreateCommand
         {
@@ -109,44 +152,41 @@ namespace ViewModels.CRUDs
 
         public ICommand RefreshCommand
         {
-            get
-            {
-                return new ActionCommand(r => RefreshTemplateList());
-            }
+            get { return new ActionCommand(r => RefreshTemplateList()); }
         }
 
         public ICommand SaveCommand
         {
-            get
-            {
-                return new ActionCommand(a => SaveTemplate());
-            }
+            get { return new ActionCommand(a => SaveTemplate()); }
         }
 
         public ICommand DeleteCommand
         {
-            get
-            {
-                return new ActionCommand(a => DeleteTemplate());
-            }
+            get { return new ActionCommand(a => DeleteTemplate()); }
         }
 
-        public ICommand AddCourseToSelectedCourses
-        {
-            get
-            {
-                return new ActionCommand(a => addCourseToSelectedCourses());
-            }
-        }
+        #endregion
 
-        public Course selectedInCourses { get; set; }
+        #endregion
+
+        #region support methods
+
+        #region Course Selection
 
         private void addCourseToSelectedCourses()
         {
             SelectedCourses.Add(selectedInCourses);
         }
 
+        private void removeCourseToSelectedCourses()
+        {
+            SelectedCourses.Remove(selectedInSelectedCourses);
+        }
+
+
         #endregion
+
+        #region Template CRUD methods
 
         public void CreateTemplate()
         {
@@ -178,5 +218,11 @@ namespace ViewModels.CRUDs
 
             RefreshTemplateList();
         }
+
+        #endregion
+
+
+        #endregion
+
     }
 }

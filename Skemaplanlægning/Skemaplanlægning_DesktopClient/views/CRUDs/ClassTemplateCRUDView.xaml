@@ -4,8 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:ViewModels.CRUDs;assembly=ViewModels" 
-             xmlns:v="clr-namespace:Skemaplanlægning_DesktopClient"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:ClassTemplateCRUDViewModel}"
              d:DesignHeight="500" d:DesignWidth="800">
@@ -28,30 +26,37 @@
             </ListBox>
         </DockPanel>
         <!--CRUD panel-->
-        <StackPanel DockPanel.Dock="Right">
+        <StackPanel MaxWidth="600" DockPanel.Dock="Right">
             <Label>Name</Label>
             <TextBox Text="{Binding SelectedTemplate.Name}" />
             <!--that annoying listbox which lets you select courses for the class template-->
             <!-- FUCKING LISTBOX MULTI ITEM SELECTIONBEHAVIOR! -->
-            <StackPanel>
-                <TextBlock Margin="0,0,0,10" Text="Courses available" />
+            <StackPanel Margin="0,10,0,0">
                 <DockPanel>
-                    <ListBox ItemsSource="{Binding Courses}" DockPanel.Dock="Left" SelectedItem="{Binding selectedInCourses}" SelectionMode="Single">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <Button Content="Add" Command="{Binding AddCourseToSelectedCourses}" />
-                    <ListBox ItemsSource="{Binding SelectedCourses}" DockPanel.Dock="Right"  SelectionMode="Multiple">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-
+                    <StackPanel Margin="10,10,10,10" DockPanel.Dock="Left" >
+                        <TextBlock Margin="0,0,0,10" Text="Courses available" />
+                        <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding selectedInCourses}" SelectionMode="Single">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,50,0,50">
+                        <Button Content="Add" Margin="0,10,0,10" Command="{Binding AddCourseToSelectedCourses}" />
+                        <Button Content="Remove" Margin="0,10,0,10" Command="{Binding RemoveCourseToSelectedCourses}" />
+                    </StackPanel>
+                    <StackPanel Margin="10,10,10,10" DockPanel.Dock="Right">
+                        <TextBlock Margin="0,0,0,10" Text="Courses selected" />
+                        <ListBox ItemsSource="{Binding SelectedCourses}" SelectedItem="{Binding selectedInSelectedCourses}" SelectionMode="Single">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
                 </DockPanel>
             </StackPanel>
             <TextBlock>

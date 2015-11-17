@@ -18,7 +18,7 @@ namespace Skemaplanlægning_DesktopClient
     /// <summary>
     /// Interaction logic for TeacherCRUDView.xaml
     /// </summary>
-    public partial class TeacherCRUDView : UserControl
+    public partial class TeacherCRUDView : Page
     {
         public TeacherCRUDView()
         {

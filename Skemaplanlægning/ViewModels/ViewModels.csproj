@@ -57,8 +57,10 @@
     <Compile Include="ActionCommand.cs" />
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="ClassViewModel.cs" />
+    <Compile Include="CRUDs\ClassCRUDViewModel.cs" />
     <Compile Include="CRUDs\ClassTemplateCRUDViewModel.cs" />
     <Compile Include="CRUDs\CourseCRUDViewModel.cs" />
+    <Compile Include="CRUDs\TeacherCRUDViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeacherViewModel.cs" />
