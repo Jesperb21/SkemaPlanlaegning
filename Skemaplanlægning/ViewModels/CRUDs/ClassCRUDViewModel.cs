@@ -81,10 +81,13 @@ namespace ViewModels.CRUDs
 
                 if (value.Id != 0)
                 {
-                    _selectedClass.CourseInstances?.Clear();
-                    //wait... entityframework is supposed to automatically load this when i havn't disabled lazyloading???
-                    //well... it works, will probably have to add a TODO check up with michael about this
-                    _context.Entry(SelectedClass).Collection(s => s.CourseInstances).Load();
+                    if (_selectedClass.CourseInstances != null)
+                    {
+                        _selectedClass.CourseInstances.Clear();
+                        //wait... entityframework is supposed to automatically load this when i havn't disabled lazyloading???
+                        //well... it works, will probably have to add a TODO check up with michael about this
+                        _context.Entry(SelectedClass).Collection(s => s.CourseInstances).Load();
+                    }
                 }
                 NotifyPropertyChanged();
             }
@@ -123,11 +126,14 @@ namespace ViewModels.CRUDs
                 if (value.Id != 0)
                 {
                     //damn i love the elvis operator
-                    _selectedTemplate.Courses?.Clear();
+                    if (_selectedTemplate.Courses != null)
+                    {
+                        _selectedTemplate.Courses.Clear();
 
-                    //wait... entityframework is supposed to automatically load this when i havn't disabled lazyloading???
-                    //well... it works, will probably have to add a TODO check up with michael about this
-                    _context.Entry(SelectedTemplate).Collection(s => s.Courses).Load();
+                        //wait... entityframework is supposed to automatically load this when i havn't disabled lazyloading???
+                        //well... it works, will probably have to add a TODO check up with michael about this
+                        _context.Entry(SelectedTemplate).Collection(s => s.Courses).Load();
+                    }
                 }
                 NotifyPropertyChanged();
             }
