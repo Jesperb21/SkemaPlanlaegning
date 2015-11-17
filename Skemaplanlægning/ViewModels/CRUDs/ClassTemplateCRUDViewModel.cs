@@ -117,7 +117,7 @@ namespace ViewModels.CRUDs
                         SelectedCourses = new ObservableCollection<Course>(SelectedTemplate.Courses);
                 }
 
-                NotifyPropertyChanged(nameof(SelectedCourses));
+                NotifyPropertyChanged("SelectedCourses");
                 NotifyPropertyChanged();
             }
         }
