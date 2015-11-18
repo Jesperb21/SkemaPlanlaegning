@@ -22,7 +22,7 @@
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="Teacher Overview">
             <mui:LinkGroup.Links>
-            <mui:Link DisplayName="Teacher's calender" Source=""/>
+            <mui:Link DisplayName="Teacher's calender" Source="../views/TeacherView.xaml"/>
             <mui:Link DisplayName="Overall calender" Source=""/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
