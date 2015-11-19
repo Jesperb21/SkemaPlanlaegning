@@ -63,6 +63,7 @@
     <Compile Include="CRUDs\TeacherCRUDViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CourseViewModel.cs" />
     <Compile Include="TeacherViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

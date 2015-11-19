@@ -97,6 +97,9 @@
     <Compile Include="views\CRUDs\TeacherCRUDView.xaml.cs">
       <DependentUpon>TeacherCRUDView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\CourseView.xaml.cs">
+      <DependentUpon>CourseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\TeacherView.xaml.cs">
       <DependentUpon>TeacherView.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
     <Page Include="views\CRUDs\TeacherCRUDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\CourseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="views\TeacherView.xaml">
       <SubType>Designer</SubType>

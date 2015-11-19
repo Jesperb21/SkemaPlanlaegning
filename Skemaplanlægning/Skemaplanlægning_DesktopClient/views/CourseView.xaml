@@ -1,0 +1,38 @@
+﻿<Page x:Class="Skemaplanlægning_DesktopClient.views.CourseView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
+      mc:Ignorable="d" 
+      d:DataContext="{d:DesignInstance vm:CourseViewModel}"
+      d:DesignHeight="500" d:DesignWidth="800"
+	Title="CourseView">
+    <Page.Resources>
+        <vm:TeacherViewModel x:Key="CourseViewModel" />
+    </Page.Resources>
+    <DockPanel Margin="30" DataContext="{DynamicResource CourseViewModel}">
+        <DockPanel DockPanel.Dock="Left" Width="200" Margin="0,0,32,0">
+            <ListBox ItemsSource="{Binding Teachers}" SelectedItem="{Binding SelectedTeacher}" VerticalAlignment="Top" Margin="0,5,0,0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding FirstName}" />
+                            <TextBlock Text="{Binding LastName}"  />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+        <ListBox ItemsSource="{Binding SelectedTeacher.Teaching}" VerticalAlignment="Top" Margin="0,5,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Course.Name}" />
+                        <TextBlock Text="{Binding StartTime}"  />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Page>
