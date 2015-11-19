@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 using Models;
 
@@ -30,8 +28,8 @@ namespace ViewModels.CRUDs
 
         public TeacherCRUDViewModel(DataContext context)
         {
+            _context = context;
             SelectedTeacher = new Teacher();
-            this._context = context;
         }
 
         #endregion

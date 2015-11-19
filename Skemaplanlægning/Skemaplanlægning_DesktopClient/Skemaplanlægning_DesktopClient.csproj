@@ -78,7 +78,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CustomListBox.cs" />
     <Compile Include="views\CRUDs\ClassCRUDView.xaml.cs">
       <DependentUpon>ClassCRUDView.xaml</DependentUpon>
     </Compile>
